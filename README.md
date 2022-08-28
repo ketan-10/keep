@@ -24,7 +24,7 @@
     
     - For dev-dependency go recommend to use direct binary of your project in cmd folder.
 
-
+    - After tools are setup Run: **`go run github.com/99designs/gqlgen init`**
 
   
 
