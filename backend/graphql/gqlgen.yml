@@ -44,7 +44,7 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-#  - "github.com/ketan-10/keep/graph/model"
+#  - "github.com/ketan-10/"
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -56,6 +56,7 @@ models:
     model:
 #       - github.com/99designs/gqlgen/graphql.ID
       - github.com/99designs/gqlgen/graphql.IntID
+      - github.com/99designs/gqlgen/graphql.ID
       # - github.com/99designs/gqlgen/graphql.Int64
 #       - github.com/99designs/gqlgen/graphql.Int32
 #   Int:
@@ -64,3 +65,5 @@ models:
 #       - github.com/99designs/gqlgen/graphql.Int64
 #       - github.com/99designs/gqlgen/graphql.Int32
 
+  SubNote:
+    model: ../entities.SubNote

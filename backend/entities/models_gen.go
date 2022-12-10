@@ -13,9 +13,3 @@ type Note struct {
 	Description string     `json:"description"`
 	SubNote     []*SubNote `json:"subNote"`
 }
-
-type SubNote struct {
-	ID          int    `json:"id"`
-	Text        string `json:"text"`
-	Description string `json:"description"`
-}

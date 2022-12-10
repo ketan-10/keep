@@ -4,6 +4,7 @@ package graphql
 
 import (
 	"context"
+	"fmt"
 	"math/rand"
 
 	"github.com/ketan-10/keep/entities"
@@ -53,8 +54,8 @@ func (r *mutationResolver) AddSubNote(ctx context.Context, text string, descript
 	}
 
 	newSubNote := &entities.SubNote{
-		// ID:          fmt.Sprintf("T%d", rand.Int()),
-		ID:          rand.Int(),
+		ID: fmt.Sprintf("T%d", rand.Int()),
+		// ID:          rand.Int(),
 		Text:        text,
 		Description: description,
 	}
