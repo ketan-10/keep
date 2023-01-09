@@ -64,11 +64,37 @@ func (r *mutationResolver) AddSubNote(ctx context.Context, text string, descript
 	return newSubNote, nil
 }
 
-// Mutation returns MutationResolver implementation.
-func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
+// // Mutation returns MutationResolver implementation.
+// func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
-// Query returns QueryResolver implementation.
-func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
+// // Query returns QueryResolver implementation.
+// func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+// type mutationResolver struct{ *Resolver }
+// type queryResolver struct{ *Resolver }
+
+func (r *Resolver) Query() QueryResolver {
+	return &queryResolver{
+		r,
+	}
+}
+
+// why this is not acceptable
+// it it recommended for a function to return Interface?
+
+func (r *Resolver) Mutation() MutationResolver {
+	return &mutationResolver{
+		r,
+	}
+}
+
+type queryResolver struct {
+	*Resolver
+}
+
+type mutationResolver struct {
+	*Resolver
+}
+
+// expect a RootResolver As interface, with 2 functions
+// we pass the struct
